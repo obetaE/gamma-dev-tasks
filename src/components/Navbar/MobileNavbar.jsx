@@ -13,9 +13,9 @@ const MobileNavbar = () => {
 
   const navLink = [
     {title: "Homepage", path: "/"},
-    {title: "Contact Us", path: "/contact"},
-    {title: "Shop", path: "/shop"},
-    {title: "About Us", path: "/about"},
+    {title: "Contact Us", path: "/"},
+    {title: "Shop", path: "/"},
+    {title: "About Us", path: "/"},
   ];
 
   const toggleMenu = () => {
