@@ -1,0 +1,959 @@
+.container {
+  margin-top: 30px;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slideWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  filter: grayscale(30%) blur(8px);
+  transform: scale(1.1);
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.textarea {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(162, 174, 187, 0.85);
+  width: 80vmin;
+  height: 80vmin;
+  border-radius: 50%;
+  padding: 2rem;
+  text-align: center;
+  z-index: 10;
+  box-shadow: 
+    0 0 0 20px rgba(236, 232, 235, 0.1),
+    0 0 60px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(236, 232, 235, 0.2);
+}
+
+.title {
+  margin-bottom: 1rem;
+  color: var(--platinum);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.highlight {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--platinum);
+  margin-top: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1.5px;
+}
+
+.slideContent {
+  margin: 2rem 0;
+}
+
+.headline {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
+}
+
+.subtext {
+  font-size: 1.2rem;
+  color: var(--platinum);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  line-height: 1.5;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.navDots {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(236, 232, 235, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background-color: var(--platinum);
+  transform: scale(1.2);
+}
+
+.dot:hover {
+  background-color: var(--platinum);
+  transform: scale(1.2);
+}
+
+/* Our Values Section */
+.valuesSection {
+  padding: 5rem 2rem;
+  background: linear-gradient(to bottom, var(--background) 0%, #2a2a2a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.valuesSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cadet-gray), transparent);
+}
+
+.valuesContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--platinum);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.sectionSubtitle {
+  font-size: 1.2rem;
+  color: var(--cadet-gray);
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  font-weight: 300;
+}
+
+.titleUnderline {
+  height: 3px;
+  width: 80px;
+  background: linear-gradient(90deg, transparent, var(--cadet-gray), transparent);
+  margin: 0 auto;
+  position: relative;
+}
+
+.titleUnderline::before,
+.titleUnderline::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: var(--cadet-gray);
+}
+
+.titleUnderline::before {
+  left: 0;
+}
+
+.titleUnderline::after {
+  right: 0;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+}
+
+.valueCard {
+  background: rgba(51, 51, 51, 0.7);
+  border: 1px solid rgba(162, 174, 187, 0.2);
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(5px);
+  position: relative;
+  overflow: hidden;
+}
+
+.valueCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(162, 174, 187, 0.1) 0%, transparent 100%);
+  z-index: -1;
+}
+
+.valueCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  border-color: rgba(162, 174, 187, 0.4);
+}
+
+.valueCard:hover .valueIcon {
+  transform: scale(1.1) rotate(5deg);
+  background: rgba(162, 174, 187, 0.2);
+}
+
+/* .valueIcon {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  transition: all 0.3s ease;
+  width: 90px;
+  height: 90px;
+  line-height: 90px;
+  border-radius: 50%;
+  background: rgba(162, 174, 187, 0.1);
+} */
+
+.valueIcon {
+  font-size: 2.5rem;
+  color: var(--cadet-gray);
+  margin-bottom: 1rem;
+}
+
+.valueCard:hover .valueIcon {
+  color: var(--platinum);
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+.valueTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--platinum);
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.valueTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: var(--cadet-gray);
+  transition: width 0.3s ease;
+}
+
+.valueCard:hover .valueTitle::after {
+  width: 80px;
+}
+
+.valueDescription {
+  color: var(--cadet-gray);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* Jet Ski Models Section */
+.modelsSection {
+  padding: 5rem 2rem;
+  background: linear-gradient(to bottom, #2a2a2a 0%, var(--background) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.modelsSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cadet-gray), transparent);
+}
+
+.modelsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.modelsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin: 4rem 0;
+}
+
+.modelCard {
+  background: rgba(51, 51, 51, 0.7);
+  border: 1px solid rgba(162, 174, 187, 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(5px);
+}
+
+.modelCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  border-color: rgba(162, 174, 187, 0.4);
+}
+
+.modelImageContainer {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.modelImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.modelCard:hover .modelImage {
+  transform: scale(1.05);
+}
+
+.modelOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modelCard:hover .modelOverlay {
+  opacity: 1;
+}
+
+.quickViewBtn {
+  background: var(--cadet-gray);
+  color: var(--background);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.quickViewBtn:hover {
+  background: var(--platinum);
+  transform: scale(1.05);
+}
+
+.modelContent {
+  padding: 2rem;
+}
+
+.modelName {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--platinum);
+  margin-bottom: 0.5rem;
+}
+
+.modelPrice {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--cadet-gray);
+  margin-bottom: 1.5rem;
+}
+
+.modelSpecs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(162, 174, 187, 0.2);
+}
+
+.specItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--cadet-gray);
+  font-size: 0.9rem;
+}
+
+.specIcon {
+  font-size: 1.2rem;
+  color: var(--platinum);
+}
+
+.featuresList {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+  color: var(--cadet-gray);
+}
+
+.featureIcon {
+  color: var(--platinum);
+  font-size: 0.9rem;
+}
+
+.ctaButton {
+  width: 100%;
+  background: linear-gradient(135deg, var(--cadet-gray) 0%, #8a9aab 100%);
+  color: var(--background);
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.ctaButton:hover {
+  background: linear-gradient(135deg, #8a9aab 0%, var(--platinum) 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(162, 174, 187, 0.3);
+}
+
+.shopCta {
+  text-align: center;
+  padding: 3rem;
+  background: rgba(51, 51, 51, 0.7);
+  border-radius: 12px;
+  border: 1px solid rgba(162, 174, 187, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+.ctaTitle {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--platinum);
+  margin-bottom: 1rem;
+}
+
+.ctaSubtitle {
+  font-size: 1.2rem;
+  color: var(--cadet-gray);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.shopButton {
+  background: linear-gradient(135deg, var(--platinum) 0%, #d9d9d9 100%);
+  color: var(--background);
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.shopButton:hover {
+  background: linear-gradient(135deg, #d9d9d9 0%, var(--platinum) 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(236, 232, 235, 0.2);
+}
+
+.shopIcon {
+  transition: transform 0.3s ease;
+}
+
+.shopButton:hover .shopIcon {
+  transform: translateX(5px);
+}
+
+/* Responsive adjustments for models section */
+@media (max-width: 768px) {
+  .modelsSection {
+    padding: 3rem 1.5rem;
+  }
+  
+  .modelsGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .modelSpecs {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .specItem {
+    flex-direction: row;
+  }
+  
+  .ctaTitle {
+    font-size: 1.8rem;
+  }
+  
+  .ctaSubtitle {
+    font-size: 1.1rem;
+  }
+  
+  .shopCta {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modelImageContainer {
+    height: 200px;
+  }
+  
+  .modelContent {
+    padding: 1.5rem;
+  }
+  
+  .modelName {
+    font-size: 1.5rem;
+  }
+  
+  .modelPrice {
+    font-size: 1.3rem;
+  }
+  
+  .ctaTitle {
+    font-size: 1.5rem;
+  }
+  
+  .ctaSubtitle {
+    font-size: 1rem;
+  }
+  
+  .shopButton {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+/* Contact Section Styles */
+.contactSection {
+  padding: 5rem 2rem;
+  background: linear-gradient(to bottom, var(--background) 0%, #2a2a2a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.contactSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cadet-gray), transparent);
+}
+
+.contactContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.contactContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.contactInfo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.infoCard {
+  background: rgba(51, 51, 51, 0.7);
+  border: 1px solid rgba(162, 174, 187, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.infoCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-color: rgba(162, 174, 187, 0.4);
+}
+
+.infoIcon {
+  font-size: 2rem;
+  color: var(--cadet-gray);
+  margin-bottom: 1rem;
+}
+
+.infoCard h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--platinum);
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.infoCard h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: var(--cadet-gray);
+}
+
+.infoCard p {
+  color: var(--cadet-gray);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.mapContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.mapPlaceholder {
+  background: rgba(51, 51, 51, 0.7);
+  border: 1px solid rgba(162, 174, 187, 0.2);
+  border-radius: 12px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+}
+
+.mapPlaceholder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(162, 174, 187, 0.1) 0%, transparent 50%, rgba(162, 174, 187, 0.1) 100%);
+  z-index: -1;
+}
+
+.mapIcon {
+  font-size: 4rem;
+  color: var(--cadet-gray);
+  margin-bottom: 1rem;
+}
+
+.mapPlaceholder p {
+  color: var(--cadet-gray);
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.directionsButton {
+  background: linear-gradient(135deg, var(--cadet-gray) 0%, #8a9aab 100%);
+  color: var(--background);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.directionsButton:hover {
+  background: linear-gradient(135deg, #8a9aab 0%, var(--platinum) 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(162, 174, 187, 0.3);
+}
+
+.visitBenefits {
+  background: rgba(51, 51, 51, 0.7);
+  border: 1px solid rgba(162, 174, 187, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(5px);
+}
+
+.visitBenefits h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--platinum);
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.visitBenefits h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--cadet-gray);
+}
+
+.visitBenefits ul {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+.visitBenefits li {
+  color: var(--cadet-gray);
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.visitBenefits li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--platinum);
+  font-weight: bold;
+}
+
+.ctaContainer {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(162, 174, 187, 0.1);
+  border-radius: 8px;
+}
+
+.ctaContainer h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--platinum);
+  margin-bottom: 1rem;
+}
+
+.visitCta {
+  background: linear-gradient(135deg, var(--platinum) 0%, #d9d9d9 100%);
+  color: var(--background);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.visitCta:hover {
+  background: linear-gradient(135deg, #d9d9d9 0%, var(--platinum) 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(236, 232, 235, 0.2);
+}
+
+/* Responsive adjustments for contact section */
+@media (max-width: 968px) {
+  .contactContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .contactInfo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .contactSection {
+    padding: 3rem 1.5rem;
+  }
+  
+  .contactInfo {
+    grid-template-columns: 1fr;
+  }
+  
+  .infoCard {
+    padding: 1.5rem;
+  }
+  
+  .mapPlaceholder {
+    height: 250px;
+  }
+  
+  .mapIcon {
+    font-size: 3rem;
+  }
+  
+  .visitBenefits {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactContent {
+    gap: 1.5rem;
+  }
+  
+  .infoCard {
+    padding: 1.2rem;
+  }
+  
+  .infoIcon {
+    font-size: 1.8rem;
+  }
+  
+  .infoCard h3 {
+    font-size: 1.2rem;
+  }
+  
+  .visitBenefits h3 {
+    font-size: 1.4rem;
+  }
+  
+  .ctaContainer h4 {
+    font-size: 1.1rem;
+  }
+  
+  .visitCta {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* Responsive adjustments for values section */
+@media (max-width: 768px) {
+  .valuesSection {
+    padding: 3rem 1.5rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2.2rem;
+  }
+  
+  .sectionSubtitle {
+    font-size: 1.1rem;
+  }
+  
+  .valuesGrid {
+    gap: 1.5rem;
+  }
+  
+  .valueCard {
+    padding: 2rem 1.5rem;
+  }
+  
+  .valueIcon {
+    font-size: 2.8rem;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .valueCard {
+    padding: 1.8rem 1.2rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.8rem;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .textarea {
+    width: 90vmin;
+    height: 90vmin;
+    padding: 1.5rem;
+  }
+  
+  .title {
+    font-size: 1.2rem;
+  }
+  
+  .highlight {
+    font-size: 2rem;
+  }
+  
+  .headline {
+    font-size: 1.8rem;
+  }
+  
+  .subtext {
+    font-size: 1rem;
+  }
+}

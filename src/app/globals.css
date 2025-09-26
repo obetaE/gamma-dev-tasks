@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+
+:root {
+
+  /* CSS HEX */
+--platinum: #ece8ebff;
+--background: #333333ff;
+--black: #000000ff;
+--cadet-gray: #a2aebbff;
+--white: #ffffffff;
+}
+
+body {
+  background: var(--background);
+  color: var(--white);
+  /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+}
